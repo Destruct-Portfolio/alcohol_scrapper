@@ -1,5 +1,7 @@
 import Hero from '@ulixee/hero'
 import Server from '@ulixee/server'
+import { getRedemptionHeader } from "privacy-pass-redeemer"
+import PrivacyPassToken from '../misc/token.js'
 
 export default class Hero_Scrapper {
 
@@ -34,6 +36,17 @@ export default class Hero_Scrapper {
             }
         })
     }
+
+    protected async $bypass(url: string) {
+        let token = PrivacyPassToken.getToken()
+        console.log(token)
+        console.log("[+] Attempting To bypass captcha ....");
+        await this.$client!.goto(url);
+        await this.$client!.fetch(url, {
+            headers: getRedemptionHeader(token, url, "GET"),
+        });
+    }
+
     protected async $extract() { }
 
     protected async $cleanup() {
