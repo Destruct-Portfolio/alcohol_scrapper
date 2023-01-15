@@ -1,0 +1,28 @@
+{
+  "name": "alcohol_scrapper",
+  "version": "1.0.0",
+  "description": "Red Spirits & Wine:",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "rimraf dist/* && tsc && cd dist && node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Destruct-Portfolio/alcohol_scrapper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Destruct-Portfolio/alcohol_scrapper/issues"
+  },
+  "homepage": "https://github.com/Destruct-Portfolio/alcohol_scrapper#readme",
+  "dependencies": {
+    "@types/node": "^18.11.18",
+    "@ulixee/hero": "^2.0.0-alpha.17",
+    "@ulixee/server": "^2.0.0-alpha.12",
+    "rimraf": "^4.0.5",
+    "typescript": "^4.9.4"
+  }
+}
