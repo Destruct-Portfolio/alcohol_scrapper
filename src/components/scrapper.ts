@@ -20,6 +20,8 @@ export default class Hero_Scrapper {
 
     }
 
+
+
     protected async $setup() {
         this._server = new Server()
         await this._server.listen({

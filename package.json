@@ -20,9 +20,12 @@
   "homepage": "https://github.com/Destruct-Portfolio/alcohol_scrapper#readme",
   "dependencies": {
     "@types/node": "^18.11.18",
+    "@types/winston": "^2.4.4",
     "@ulixee/hero": "^2.0.0-alpha.17",
     "@ulixee/server": "^2.0.0-alpha.12",
+    "privacy-pass-redeemer": "^1.0.2",
     "rimraf": "^4.0.5",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "winston": "^3.8.2"
   }
 }
