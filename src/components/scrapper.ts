@@ -1,5 +1,6 @@
 import Hero from '@ulixee/hero'
 import Server from '@ulixee/server'
+//@ts-ignore
 import { getRedemptionHeader } from "privacy-pass-redeemer"
 import PrivacyPassToken from '../misc/token.js'
 import { product } from '../types/index.js'
@@ -61,6 +62,13 @@ export default class Hero_Scrapper {
 
             await this._server.close()
         }
+    }
+
+    protected async $restart (url: string){
+        await this.$cleanup()
+        await this.$setup()
+        await this.$bypass(url)
+        
     }
 
     public async exec() {

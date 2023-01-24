@@ -2,8 +2,6 @@ import fs from "node:fs"
 import Hero_Scrapper from "./scrapper.js"
 import { product } from "../types/index.js"
 import Sleep from "../misc/sleep.js"
-import Hero from "@ulixee/hero"
-import Server from "@ulixee/server"
 
 
 export default class win2 extends Hero_Scrapper {
@@ -19,8 +17,10 @@ export default class win2 extends Hero_Scrapper {
 
         let nextPage: boolean = true
         let numberOfElements = 0
-        let profile = await this.$client.exportUserProfile()
+        //let profile = await this.$client.exportUserProfile()
         while (nextPage) {
+
+            if(numberOfElements >=200) await this.$restart("https://shopredspirits.com/")
             try {
                 console.log(await this.$client.url)
                 let Links = await this.$client.querySelectorAll('div.item-wrapper.product').$map((async (t) => {
@@ -46,9 +46,8 @@ export default class win2 extends Hero_Scrapper {
                 }
             } catch (error) {
                 console.log(error)
-                await this.$cleanup()
-                await this.$setup()
-                await this.$bypass("https://shopredspirits.com/")
+                await this.$restart("https://shopredspirits.com/")
+
             }
         }
     }
