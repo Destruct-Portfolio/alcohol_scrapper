@@ -2,16 +2,18 @@ import Hero from '@ulixee/hero'
 import Server from '@ulixee/server'
 import { getRedemptionHeader } from "privacy-pass-redeemer"
 import PrivacyPassToken from '../misc/token.js'
+import { product } from '../types/index.js'
 
 export default class Hero_Scrapper {
 
-    public static HERO_PORT = 6302
+    public static HERO_PORT = 6400
 
 
-    protected $payload: any[]
+    protected $payload: product[]
 
     protected $client: Hero | null
-    private _server: Server | null
+
+    public _server: Server | null
 
     constructor() {
 
@@ -40,6 +42,7 @@ export default class Hero_Scrapper {
         })
 
         this.$client = new Hero({
+
             connectionToCore: {
                 host: `ws://localhost:${Hero_Scrapper.HERO_PORT}`
             }, viewport: {
@@ -48,11 +51,14 @@ export default class Hero_Scrapper {
             }
         })
     }
+
     protected async $extract() { }
 
     protected async $cleanup() {
+
         if (this.$client && this._server) {
             await this.$client.close()
+
             await this._server.close()
         }
     }

@@ -1,5 +1,9 @@
-import Wine_Spirits from "./components/wine_spirits.js";
-import pupp_wine from './components/wine_pup.js'
+import PUP from "./components/ttt.js";
+import win2 from "./components/wine2.js";
+import SaveHandler from "./misc/save_handler.js";
 
-console.log(await new Wine_Spirits().exec())
-//console.log(await new pupp_wine().exec())
+console.log(await new win2().exec().then((payload) => {
+    SaveHandler.To_JSON(payload)
+}))
+
+/* await new PUP().exec() */

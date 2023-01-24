@@ -2,7 +2,7 @@ name: halou_updated
 
 on:
   push:
-    branches: [codespace-benhichem-jubilant-space-guide-gp597p45q7q2w4q4]
+    branches: [main]
 
 jobs:
   build:
